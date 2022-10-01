@@ -2,7 +2,7 @@
 
 namespace Script.Skill.Skills.FireBall
 {
-    public abstract class AbstractAbility : ScriptableObject
+    public abstract class Ability : ScriptableObject
     {
         public new string name = "New Ability";
         public Sprite sprite;

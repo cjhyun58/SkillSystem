@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Skill.Skills.FireBall
 {
-    public class ProjectileShootTriggerable : MonoBehaviour {
+    public class FireBallTriggerable : MonoBehaviour {
 
-        [HideInInspector] public Rigidbody projectile;
+        [HideInInspector] public Rigidbody2D fireBall;
         public Transform bulletSpawn;
-        [HideInInspector] public float projectileForce = 250f;
+        [HideInInspector] public float fireBallForce = 250f;
 
         public void Launch()
         {
-            Rigidbody clonedBullet = Instantiate(projectile, bulletSpawn.position, transform.rotation) as Rigidbody;
-            clonedBullet.AddForce(bulletSpawn.transform.forward * projectileForce);
+            Rigidbody2D clonedBullet = Instantiate(fireBall, bulletSpawn.position, transform.rotation) as Rigidbody2D;
+            clonedBullet.AddForce(bulletSpawn.transform.right * fireBallForce);
         }
     }
 }
