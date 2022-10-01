@@ -227,8 +227,6 @@ GameObject:
   m_Component:
   - component: {fileID: 410595534}
   - component: {fileID: 410595533}
-  - component: {fileID: 410595535}
-  - component: {fileID: 410595536}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -303,36 +301,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &410595535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410595532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44757d99fbaf5bb4fbe708be2c25677e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 100
-  hp: 100
-  power: 5
-  speed: 3
-  xp: 0
---- !u!114 &410595536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410595532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81602b5e6e094d5c870d829065547d61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilities: []
 --- !u!1 &1271372621
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +312,6 @@ GameObject:
   - component: {fileID: 1271372624}
   - component: {fileID: 1271372623}
   - component: {fileID: 1271372622}
-  - component: {fileID: 1271372625}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -418,18 +385,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1271372625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271372621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d983912208f81b48b4d5ab468639ae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1536060218
 GameObject:
   m_ObjectHideFlags: 0
