@@ -2,8 +2,8 @@
 
 namespace Script.Skill
 {
-    public class AbilityTriggerable : MonoBehaviour
-    {
+    public class FireBallTrigger : AbilityTrigger {
+
         
     }
 }

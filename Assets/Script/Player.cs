@@ -30,5 +30,12 @@ namespace Script
             };
             transform.Translate(moveValue * (speed * Time.deltaTime));
         }
+
+        public void GetDamage(int damage)
+        {
+            hp -= damage;
+            Debug.Log($"DMG : " + damage);
+            Debug.Log($"HP : " + hp);
+        }
     }
 }
