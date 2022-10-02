@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Script.Skill.Skills.FireBall
+namespace Script.Skill
 {
     public class AbilityCoolDown : MonoBehaviour
     {

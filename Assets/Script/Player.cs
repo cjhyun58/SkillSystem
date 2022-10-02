@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Script
 {
-    public class Player_R : MonoBehaviour
+    public class Player : MonoBehaviour
     {
         [Header("Player State")] 
         [SerializeField]

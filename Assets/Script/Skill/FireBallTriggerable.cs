@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Script.Skill.Skills.FireBall
+namespace Script.Skill
 {
     public class FireBallTriggerable : MonoBehaviour {
 

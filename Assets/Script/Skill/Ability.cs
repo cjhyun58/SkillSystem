@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Script.Skill.Skills.FireBall
+namespace Script.Skill
 {
     public abstract class Ability : ScriptableObject
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Script.Skill.Skills.FireBall
+namespace Script.Skill
 {
     [CreateAssetMenu(menuName = "Abilities/FireBallAblility")]
     public class FireBallAbility : Ability
