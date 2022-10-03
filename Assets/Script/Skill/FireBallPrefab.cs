@@ -3,15 +3,9 @@ using UnityEngine;
 
 namespace Script.Skill
 {
-    public class FireBall : MonoBehaviour
+    public class FireBallPrefab : MonoBehaviour
     {
-        public new Rigidbody2D rigidbody;
         public int damage { get; set;}
-
-        private void Awake()
-        {
-            rigidbody = GetComponent<Rigidbody2D>();
-        }
 
         private void OnTriggerEnter2D(Collider2D col)
         {

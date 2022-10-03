@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Fire Ball
   m_EditorClassIdentifier: 
   name: FireBall
-  damage: 10
+  damage: 1
   baseCoolDown: 1
   force: 500
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  sound: {fileID: 0}
-  projectile: {fileID: 7897537646141776637, guid: 085db76fe61bec5488c491f19c81ab28, type: 3}
+  castSound: {fileID: 0}
+  hitSound: {fileID: 0}
+  projectilePrefab: {fileID: 7897537646141776637, guid: 085db76fe61bec5488c491f19c81ab28, type: 3}

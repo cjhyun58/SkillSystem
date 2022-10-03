@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Skill
 {
@@ -9,7 +10,14 @@ namespace Script.Skill
         public float baseCoolDown = 1f;
         public float force = 500f;
         public Sprite sprite;
-        public AudioClip sound;
-        public FireBall projectile;
+        public AudioClip castSound;
+        public AudioClip hitSound;
+        public GameObject projectilePrefab;
+        protected GameObject projectileClone;
+
+
+        public abstract void Activate(AbilityHolder holder);
+        public abstract void BeginCooldown(AbilityHolder holder);
+        public abstract void DeleteEffect(AbilityHolder holder);
     }
 }
