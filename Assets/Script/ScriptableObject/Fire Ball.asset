@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: FireBall
   damage: 1
-  baseCoolDown: 1
+  baseCoolDown: 0.5
   force: 500
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   castSound: {fileID: 0}

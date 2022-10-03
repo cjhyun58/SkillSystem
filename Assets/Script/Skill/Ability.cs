@@ -13,11 +13,7 @@ namespace Script.Skill
         public AudioClip castSound;
         public AudioClip hitSound;
         public GameObject projectilePrefab;
-        protected GameObject projectileClone;
-
 
         public abstract void Activate(AbilityHolder holder);
-        public abstract void BeginCooldown(AbilityHolder holder);
-        public abstract void DeleteEffect(AbilityHolder holder);
     }
 }

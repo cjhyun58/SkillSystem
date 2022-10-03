@@ -5,26 +5,20 @@ namespace Script.Skill
     [CreateAssetMenu(menuName = "Ability/FireBallAbility")]
     public class FireBallAbility : Ability
     {
-        
         public override void Activate(AbilityHolder holder)
         {
-            // 스킬 생성 위치 설정
-            Transform spawnTransform = holder.transform;
-            projectileClone = Instantiate(projectilePrefab, spawnTransform.position, spawnTransform.rotation);
-            // projectileClone에서 필요한 데이터
-            // Rigidbody2D, damage
+            // 스킬 생성 위치 설정 (무기)
+            Transform holderTransform = holder.transform;
+            // 스킬 방향 설정
+            Vector2 direction = holderTransform.up.normalized;
             
-            // 수정 필요 (Expensive Method)
-            projectileClone.GetComponent<FireBallPrefab>().damage = damage;
-            projectileClone.GetComponent<Rigidbody2D>().AddForce(Vector2.up * force);
-        }
-
-        public override void BeginCooldown(AbilityHolder holder)
-        {
-        }
-
-        public override void DeleteEffect(AbilityHolder holder)
-        {
+            // 오브젝트 풀링 구현 필요
+            GameObject projectileClone = Instantiate(projectilePrefab, holderTransform.position, holderTransform.rotation);
+            
+            // 성능 개선 필요
+            FireBallPrefab fireBallPrefab = projectileClone.GetComponent<FireBallPrefab>();
+            fireBallPrefab.Initialize(damage);
+            fireBallPrefab.rigidbody2D.AddForce(direction * force);
         }
     }
 }
