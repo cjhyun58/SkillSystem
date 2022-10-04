@@ -8,17 +8,24 @@ namespace Script.Skill
         public override void Activate(AbilityHolder holder)
         {
             // 스킬 생성 위치 설정 (무기)
-            Transform holderTransform = holder.transform;
+            spawnTransform = holder.transform;
             // 스킬 방향 설정
-            Vector2 direction = holderTransform.up.normalized;
+            direction = spawnTransform.up.normalized;
+
+            
+            AbilityProjectile projectileClone = ObjectPool.GetObject();
+            projectileClone.transform.SetPositionAndRotation(spawnTransform.position, spawnTransform.rotation);
+            projectileClone.Initialize(damage);
+            projectileClone.rigidbody2D.AddForce(direction * force);
+            
             
             // 오브젝트 풀링 구현 필요
-            GameObject projectileClone = Instantiate(projectilePrefab, holderTransform.position, holderTransform.rotation);
-            
+            //GameObject projectileClone = Instantiate(projectilePrefab, spawnTransform.position, spawnTransform.rotation);
             // 성능 개선 필요
-            FireBallPrefab fireBallPrefab = projectileClone.GetComponent<FireBallPrefab>();
-            fireBallPrefab.Initialize(damage);
-            fireBallPrefab.rigidbody2D.AddForce(direction * force);
+            // FireBallProjectile fireBallProjectile = projectileClone.GetComponent<FireBallProjectile>();
+            // fireBallProjectile.Initialize(damage);
+            // fireBallProjectile.rigidbody2D.AddForce(direction * force);
         }
+
     }
 }

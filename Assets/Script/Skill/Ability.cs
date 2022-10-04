@@ -13,6 +13,8 @@ namespace Script.Skill
         public AudioClip castSound;
         public AudioClip hitSound;
         public GameObject projectilePrefab;
+        protected Transform spawnTransform;
+        protected Vector2 direction;
 
         public abstract void Activate(AbilityHolder holder);
     }
