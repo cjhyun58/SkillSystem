@@ -18,26 +18,21 @@ namespace Script
     
         void Update()
         {
-            Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            // Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         }
 
-        void Move(float horizontal, float vertical)
+        public void Move(float horizontal, float vertical)
         {
-            var moveValue = new Vector3
+            var moveValue = new Vector2
             {
                 x = horizontal,
                 y = vertical
             };
             transform.Translate(moveValue * (speed * Time.deltaTime));
         }
-        void Move(Vector2 moveVector)
+        public void Move(Vector2 moveVector)
         {
-            var moveValue = new Vector3
-            {
-                x = moveVector.x,
-                y = moveVector.y
-            };
-            transform.Translate(moveValue * (speed * Time.deltaTime));
+            transform.Translate(moveVector * (speed * Time.deltaTime));
         }
 
         public void GetDamage(int damage)

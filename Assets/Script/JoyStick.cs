@@ -8,63 +8,46 @@ namespace Script
     {
         public RectTransform rectBack;
         public RectTransform rectJoystick;
- 
-        Transform trCube;
-        float fRadius;
-        float fSpeed = 20.0f;
-        float fSqr = 0f;
-        Vector3 vecMove;
-        Vector2 vecNormal;
-        bool isTouch = false;
- 
+
+        public Vector3 joyDirection;
+        private float backRadius;
+        Player player;
  
         void Start()
         {
-            trCube = GameObject.Find("Player").transform;
- 
-            fRadius = rectBack.rect.width * 0.5f;
+            player = GameObject.FindWithTag("Player").GetComponent<Player>();
+            backRadius = rectBack.sizeDelta.y * 0.5f;
+            backRadius *= transform.parent.GetComponent<RectTransform>().localScale.x;
         }
  
         void Update()
         {
-            if (isTouch)
-            {
-                trCube.position += vecMove;
-            }
-            
-        }
- 
-        void OnTouch(Vector2 vecTouch)
-        {
-            Vector2 vec = new Vector2(vecTouch.x - rectBack.position.x, vecTouch.y - rectBack.position.y);
- 
-            vec = Vector2.ClampMagnitude(vec, fRadius);
-            rectJoystick.localPosition = vec;
- 
-            float fSqr = (rectBack.position - rectJoystick.position).sqrMagnitude / (fRadius * fRadius);
- 
-            Vector2 vecNormal = vec.normalized;
- 
-            vecMove = new Vector3(vecNormal.x * fSpeed * Time.deltaTime * fSqr, vecNormal.y * fSpeed * Time.deltaTime * fSqr, 0);
-            trCube.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(vecNormal.x, vecNormal.y) * Mathf.Rad2Deg *-1);
+            player.Move(joyDirection);
         }
  
         public void OnDrag(PointerEventData eventData)
         {
-            OnTouch(eventData.position);
-            isTouch = true;
+            Vector3 pos = eventData.position;
+            Vector3 backPos = rectBack.transform.position;
+            joyDirection = (pos - backPos).normalized;
+ 
+            float distance = Vector3.Distance(pos, backPos);
+        
+            if (distance < backRadius)
+                rectJoystick.position = backPos + joyDirection * distance;
+            else
+                rectJoystick.position = backPos + joyDirection * backRadius;
         }
  
         public void OnPointerDown(PointerEventData eventData)
         {
-            OnTouch(eventData.position);
-            isTouch = true;
+            
         }
  
         public void OnPointerUp(PointerEventData eventData)
         {
             rectJoystick.localPosition = Vector3.zero;
-            isTouch = false;
+            joyDirection = Vector3.zero;      
         }
     }
 }

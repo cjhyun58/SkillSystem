@@ -9,8 +9,6 @@ namespace Script
         public void GetDamage(int damage)
         {
             hp -= damage;
-            Debug.Log($"DMG : " + damage);
-            Debug.Log($"HP : " + hp);
         }
     }
 }
