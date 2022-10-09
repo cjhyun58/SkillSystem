@@ -7,8 +7,10 @@ namespace Script.Skill
     {
         public static ObjectPool<T> instance;
 
+        // 스킬(맵) 선택시 할당 해줄 예정  
         [SerializeField]
         private GameObject poolingObjectPrefab;
+        
         Queue<T> poolingObjectQueue = new Queue<T>();
         [SerializeField]
         private int initCount;
