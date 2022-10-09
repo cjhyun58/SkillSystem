@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5dde4e4297426587891c08e6efa16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolingObjectPrefab: {fileID: 0}
+  poolingObjectPrefab: {fileID: 7897537646141776637, guid: 085db76fe61bec5488c491f19c81ab28, type: 3}
 --- !u!4 &1105303424
 Transform:
   m_ObjectHideFlags: 0

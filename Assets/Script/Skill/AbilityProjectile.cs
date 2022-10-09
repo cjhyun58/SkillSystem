@@ -14,8 +14,7 @@ namespace Script.Skill
 
         private void Start()
         {
-            // 오브젝트 풀링 구현 필요
-            // Destroy(gameObject, 3);
+            // 시간 기준 삭제 필요
         }
 
         public void Initialize(int damage)
@@ -28,10 +27,7 @@ namespace Script.Skill
             if (col.CompareTag("Enemy"))
             {
                 col.GetComponent<Enemy>().GetDamage(damage);
-                ObjectPool.ReturnObject(this);
-                
-                // 오브젝트 풀링 구현 필요
-                //Destroy(gameObject);
+                ObjectPoolAbility.ReturnObject(this);
             }
         }
     }

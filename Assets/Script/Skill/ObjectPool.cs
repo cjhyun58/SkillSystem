@@ -3,19 +3,20 @@ using UnityEngine;
 
 namespace Script.Skill
 {
-    public class ObjectPool : MonoBehaviour
+    public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
     {
-        public static ObjectPool instance;
+        public static ObjectPool<T> instance;
 
         [SerializeField]
         private GameObject poolingObjectPrefab;
-
-        Queue<AbilityProjectile> poolingObjectQueue = new Queue<AbilityProjectile>();
+        Queue<T> poolingObjectQueue = new Queue<T>();
+        [SerializeField]
+        private int initCount;
 
         private void Awake()
         {
             instance = this;
-            Initialize(10);
+            Initialize(initCount);
         }
 
         private void Initialize(int initCount)
@@ -26,15 +27,15 @@ namespace Script.Skill
             }
         }
 
-        private AbilityProjectile CreateNewObject()
+        private T CreateNewObject()
         {
-            var newObj = Instantiate(poolingObjectPrefab).GetComponent<AbilityProjectile>();
+            var newObj = Instantiate(poolingObjectPrefab).GetComponent<T>();
             newObj.gameObject.SetActive(false);
             newObj.transform.SetParent(transform);
             return newObj;
         }
 
-        public static AbilityProjectile GetObject()
+        public static T GetObject()
         {
             if(instance.poolingObjectQueue.Count > 0)
             {
@@ -52,7 +53,7 @@ namespace Script.Skill
             }
         }
 
-        public static void ReturnObject(AbilityProjectile obj)
+        public static void ReturnObject(T obj)
         {
             obj.gameObject.SetActive(false);
             obj.transform.SetParent(instance.transform);

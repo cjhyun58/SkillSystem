@@ -30,6 +30,15 @@ namespace Script
             };
             transform.Translate(moveValue * (speed * Time.deltaTime));
         }
+        void Move(Vector2 moveVector)
+        {
+            var moveValue = new Vector3
+            {
+                x = moveVector.x,
+                y = moveVector.y
+            };
+            transform.Translate(moveValue * (speed * Time.deltaTime));
+        }
 
         public void GetDamage(int damage)
         {
