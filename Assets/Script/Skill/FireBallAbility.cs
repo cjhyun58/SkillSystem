@@ -14,7 +14,7 @@ namespace Script.Skill
 
             AbilityProjectile projectileClone = ObjectPoolAbility.GetObject();
             projectileClone.transform.SetPositionAndRotation(spawnTransform.position, spawnTransform.rotation);
-            projectileClone.Initialize(damage);
+            projectileClone.Initialize(damage, activeTime);
             projectileClone.rigidbody2D.AddForce(direction * force);
         }
     }
