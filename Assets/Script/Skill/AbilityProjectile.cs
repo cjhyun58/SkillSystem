@@ -17,6 +17,7 @@ namespace Script.Skill
         {
             this.damage = damage;
             Invoke(nameof(DeleteProjectile), activeTime);
+            rigidbody2D.velocity = Vector2.zero;
         }
         private void OnTriggerEnter2D(Collider2D col)
         {
@@ -28,6 +29,7 @@ namespace Script.Skill
         }
         protected void DeleteProjectile()
         {
+            CancelInvoke(nameof(DeleteProjectile));
             ObjectPoolAbility.ReturnObject(this);
         }
     }
