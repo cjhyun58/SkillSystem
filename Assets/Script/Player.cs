@@ -5,7 +5,7 @@ namespace Script
     public class Player : MonoBehaviour
     {
         [Header("Player State")] 
-        [SerializeField] private int maxHp = 100;
+        [SerializeField] private int baseHp = 100;
         [SerializeField] private int hp = 100;
         [SerializeField] public int power = 5;
         [SerializeField] private float speed = 3f;

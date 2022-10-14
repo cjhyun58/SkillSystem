@@ -5,7 +5,7 @@ namespace Script
     public class MainCamera : MonoBehaviour
     {
         private Transform playerTransform;
-        private float speed = 7.5f;
+        private readonly float speed = 7.5f;
         void Awake()
         {
             playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();

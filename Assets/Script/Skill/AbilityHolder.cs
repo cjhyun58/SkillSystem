@@ -7,6 +7,7 @@ namespace Script.Skill
     {
         [SerializeField] private Ability ability;
         private float nextReadyTime;
+        
 
         private void Update()
         {
